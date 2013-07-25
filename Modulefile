@@ -1,5 +1,5 @@
 name    'sharpie-r10k'
-version '0.0.1'
+version '0.1.0'
 author 'Charlie Sharpsteen <source@sharpsteen.net>'
 license 'Apache License, Version 2.0'
 
