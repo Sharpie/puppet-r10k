@@ -1,5 +1,6 @@
 sharpie-r10k
 ============
+[![Build Status](https://travis-ci.org/Sharpie/puppet-r10k.png?branch=master)](https://travis-ci.org/Sharpie/puppet-r10k)
 
 A [Puppet][puppet] module to install and configure [r10k][r10k], the killer robot powered Puppet deployment tool.
 
