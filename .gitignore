@@ -2,6 +2,6 @@
 .rspec
 .ruby-version
 Gemfile.local
-=======
+Gemfile.lock
 pkg
 vendor
