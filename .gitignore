@@ -1,5 +1,7 @@
 .bundle
+.rspec
 .ruby-version
 Gemfile.local
+=======
 pkg
 vendor
