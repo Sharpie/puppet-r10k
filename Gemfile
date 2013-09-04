@@ -10,12 +10,10 @@ gem 'puppet', puppetversion
 
 group :test do
   gem 'rake'
-  # NOTE: RSpec and mocha are pinned at the same versions used by Puppet 3.x.
-  # Puppet 2.7.x uses RSpec 2.10.x, so a patchlevel may have to be dropped if
-  # this causes problems in the future.
-  gem 'rspec',        '~> 2.11.0', :require => false
-  gem 'mocha',        '~> 0.10.5', :require => false
-  gem 'rspec-puppet', :git => 'https://github.com/rodjek/rspec-puppet',  :require => false
+  gem 'puppet-lint'
+  gem 'puppet-syntax'
+  gem 'rspec-puppet'
+  gem 'puppetlabs_spec_helper'
 end
 
 if File.exists? "#{__FILE__}.local"
