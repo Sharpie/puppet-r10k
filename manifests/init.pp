@@ -8,6 +8,14 @@
 #   Version of r10k to install. Accepts any ensure state that is valid for the
 #   Package type. Default: present
 #
+# [*package_name*]
+#   Name of the package to install
+#   Default: r10k
+#
+# [*provider*]
+#   Provider to install the r10k package
+#   Default: gem
+#
 # === Examples
 #
 #  class { r10k: ensure => '1.0.0' }
@@ -17,12 +25,14 @@
 # Charlie Sharpsteen <source@sharpsteen.net>
 #
 class r10k (
-  $ensure = 'present',
+  $ensure       = 'present',
+  $package_name = 'r10k',
+  $provider     = 'gem',
 ){
 
-  package { 'r10k':
+  package { $package_name:
     ensure   => $ensure,
-    provider => 'gem',
+    provider => $provider,
   }
 
 }

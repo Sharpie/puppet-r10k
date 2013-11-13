@@ -21,7 +21,7 @@ describe 'r10k::config', :type => :class do
   }
 
   it 'manages /etc/r10k.yaml' do
-    expect(subject).to contain_file('/etc/r10k.yaml')
+    should contain_file('/etc/r10k.yaml')
   end
 
   it 'creates valid YAML' do
