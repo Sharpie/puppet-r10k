@@ -49,8 +49,8 @@ class r10k::config (
 
   file { '/etc/r10k.yaml':
     ensure  => 'file',
-    owner   => 'root',
-    group   => 'root',
+    owner   => 0,
+    group   => 0,
     content => template('r10k/r10k.yaml.erb'),
   }
 
