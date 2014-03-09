@@ -15,7 +15,7 @@ group :test do
   # this causes problems in the future.
   gem 'rspec',        '~> 2.11.0', :require => false
   gem 'mocha',        '~> 0.10.5', :require => false
-  gem 'rspec-puppet', :git => 'https://github.com/rodjek/rspec-puppet',  :require => false
+  gem 'rspec-puppet', '~> 1.0.0'
 end
 
 if File.exists? "#{__FILE__}.local"
