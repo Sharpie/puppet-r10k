@@ -11,14 +11,17 @@ There are two other r10k modules available on the [module forge][puppet-forge] t
   - [zack/r10k][zack-r10k]
 
 Both have interesting features such as cron setup or MCollective integration.
-Compared to `zack/r10k`, this module aims for a minimal installation footprint with respect to adding system packages.
+Compared to `zack/r10k`, this module aims for minimal complexity and provides just enough Puppet policy to manage the r10k configuration file.
+In many respects, `zack/r10k` is "the r10k module" and this module is "r10k-lite".
 Compared to `ploperations/r10k`, this module emphasizes configuration through [Hiera data bindings][hiera-bindings] rather than statically served files.
 
 ### Caveats
 
 This package has no stable releases yet.
-Specifically, _there are no tests and all interfaces are subject to change_.
+Specifically, _there is limited test coverage and all interfaces are subject to change_.
 **Use in production at your own risk.**
+
+For production systems, I heartily recommend using `zack/r10k` instead of this module.
 
 This package is hard-wired to manage the system-wide r10k config file `/etc/r10k.yaml` which is owned by `root`.
 This restriction may be lifted in future versions.
