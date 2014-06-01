@@ -45,12 +45,15 @@ class r10k::config (
   $cachedir  = '/var/cache/r10k',
   $sources   = {},
   $purgedirs = [],
+  $path = '/etc/r10k.yaml',
+  $owner = 'root',
+  $group = 'root',
 ){
 
-  file { '/etc/r10k.yaml':
+  file { "${path}":
     ensure  => 'file',
-    owner   => 'root',
-    group   => 'root',
+    owner   => $owner,
+    group   => $group,
     content => template('r10k/r10k.yaml.erb'),
   }
 
