@@ -48,12 +48,14 @@ class r10k::config (
   $path = '/etc/r10k.yaml',
   $owner = 'root',
   $group = 'root',
+  $mode  = '0644',
 ){
 
   file { "${path}":
     ensure  => 'file',
     owner   => $owner,
     group   => $group,
+    mode    => $mode,
     content => template('r10k/r10k.yaml.erb'),
   }
 
