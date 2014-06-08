@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+
+Released 06-07-2014
+
+Improvements:
+
+  - The `r10k::config` class now passes the `path`, `owner`, `group` and `mode`
+    parameters to the underlying `file` resource.
+
 ## 0.1.0
 
 Released 03-09-2014
