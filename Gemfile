@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Default to lowest common denominator.
-gem 'puppet', (ENV['PUPPET_VERSION'] || '~> 3.4.0'), :require => false
+gem 'puppet', (ENV['PUPPET_VERSION'] || '~> 3.6'), :require => false
 
 group :test do
   gem 'rake', :require => false
