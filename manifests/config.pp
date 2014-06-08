@@ -13,6 +13,14 @@
 # * [*purgedirs*]
 #   An Array of directory paths to purge of any subdirectories that do not
 #   correspond to a dynamic environment managed by r10k. Default: []
+# * [*path*]
+#   The path at which the r10k config is written. Default: /etc/r10k.yaml
+# * [*owner*]
+#   The owner for the r10k config file. Default: root
+# * [*group*]
+#   The group owner of the r10k config file. Default: root
+# * [*mode*]
+#   The the mode of the r10k config file. Default: 0644
 #
 # === Examples
 #
