@@ -14,5 +14,9 @@
 # Michael Gruener <michael.gruener@chaosmoon.net>
 #
 class r10k {
-  include r10k::install::gem
+  if $::osfamily == 'RedHat' {
+    include r10k::install::rpm
+  } else {
+    include r10k::install::gem
+  }
 }
