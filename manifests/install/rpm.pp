@@ -43,6 +43,7 @@ class r10k::install::rpm (
 
     package { 'rubygem-r10k':
       ensure   => $ensure,
+      require  => Yumrepo['r10k'],
     }
   } else {
     fail('The class r10k::install::rpm is only intended for RedHat style systems (Fedora / Centos / RHEL).')
