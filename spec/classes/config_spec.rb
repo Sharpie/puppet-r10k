@@ -13,10 +13,6 @@ describe 'r10k::config', :type => :class do
           'basedir' => '/some/other/basedir'
         },
       },
-      'purgedirs' => [
-        "${::settings::confdir}/environments",
-        '/some/other/basedir',
-      ],
     }
   }
 
@@ -35,10 +31,6 @@ describe 'r10k::config', :type => :class do
     # YAML dumps of Ruby objects.
     it 'creates a hash of sources' do
       expect(content[:sources]).to be_a(Hash)
-    end
-
-    it 'creates an array of purgedirs' do
-      expect(content[:purgedirs]).to be_a(Array)
     end
   end
 end

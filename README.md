@@ -70,10 +70,6 @@ The `r10k::config` class manages the contents of `/etc/r10k.yaml` and accepts th
     Hash containing data sources to be used by r10k to create dynamic Puppet environments.
     Default: `{}`
 
-  * `purgedirs`:
-   An Array of directory paths to purge of any subdirectories that do not correspond to a dynamic environment managed by r10k.
-   Default: `[]`
-
 Detailed information on these parameters can be found in the [r10k documentation][r10k-docs].
 
 The `r10k::config` class is designed to be used in conjunction with Hiera data:
@@ -89,10 +85,6 @@ r10k::config::sources:
   someothername:
     remote: 'ssh://git@github.com/someuser/someotherrepo.git'
     basedir: '/some/other/basedir'
-
-r10k::config::purgedirs:
-  - '%{::settings::confdir}/environments'
-  - '/some/other/basedir/
 ```
 
 ```puppet
@@ -115,10 +107,6 @@ class { 'r10k::config':
       'basedir' => '/some/other/basedir'
     },
   },
-  purgedirs => [
-    "${::settings::confdir}/environments",
-    '/some/other/basedir',
-  ],
 }
 ```
 
