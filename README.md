@@ -6,7 +6,7 @@ A [Puppet][puppet] module to install and configure [r10k][r10k], the killer robo
 
 There are two other r10k modules available on the [module forge][puppet-forge] that pre-date this one:
 
-  - [ploperations/r10k][zack-r10k]
+  - [ploperations/r10k][ploperations-r10k]
 
   - [zack/r10k][zack-r10k]
 
