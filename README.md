@@ -110,7 +110,7 @@ class { 'r10k::config':
 }
 ```
 
-  [r10k-docs]: https://github.com/adrienthebo/r10k/blob/master/README.markdown
+  [r10k-docs]: https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/configuration.mkd
 
 
 Support

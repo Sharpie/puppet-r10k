@@ -36,7 +36,7 @@
 #
 # == Documentation
 #
-# * https://github.com/adrienthebo/r10k#dynamic-environment-configuration
+# * https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/configuration.mkd
 #
 # === Authors
 #
