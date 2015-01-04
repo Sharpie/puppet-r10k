@@ -3,4 +3,5 @@
 Gemfile.local
 Gemfile.lock
 pkg
+spec/fixtures
 vendor

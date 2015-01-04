@@ -1,0 +1,4 @@
+---
+fixtures:
+  symlinks:
+    r10k: "#{source_dir}"
