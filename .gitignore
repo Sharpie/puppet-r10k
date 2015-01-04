@@ -1,5 +1,4 @@
 .bundle
-.rspec
 .ruby-version
 Gemfile.local
 Gemfile.lock

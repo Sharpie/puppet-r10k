@@ -1,6 +1,6 @@
 ---
 language: ruby
-script: "SPEC_OPTS='--color --format documentation' bundle exec rake spec"
+script: bundle exec rake spec
 notifications:
   email: false
 rvm:
