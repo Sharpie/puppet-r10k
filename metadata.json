@@ -9,6 +9,12 @@
   "issues_url": "https://github.com/Sharpie/puppet-r10k/issues",
   "description": "A module to install and configure r10k, the killer robot powered Puppet deployment tool.",
   "tags": ["deployment", "puppet", "r10k"],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.4.0"
+    }
+  ],
   "dependencies": [
 
   ]
