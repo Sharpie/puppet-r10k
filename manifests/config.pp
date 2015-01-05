@@ -7,6 +7,10 @@
 # * [*cachedir*]
 #   Path to a directory to be used by r10k for caching data.
 #   Default: /var/cache/r10k
+# * [*postrun*]
+#   An array of strings that specifies an arbitrary command to be run after
+#   environment deployment.
+#   Default: []
 # * [*sources*]
 #   Hash containing data sources to be used by r10k to create dynamic Puppet
 #   environments. Default: {}
@@ -31,6 +35,7 @@
 #        'remote'  => 'ssh://git@github.com/someuser/someotherrepo.git',
 #        'basedir' => '/some/other/basedir'
 #      },
+#      'postrun' => ['/usr/bin/curl', '-F', 'deploy=done', 'http://my-app.site/endpoint'],
 #    },
 #  }
 #
@@ -43,12 +48,13 @@
 # Charlie Sharpsteen <source@sharpsteen.net>
 #
 class r10k::config (
-  $cachedir  = '/var/cache/r10k',
-  $sources   = {},
-  $path = '/etc/r10k.yaml',
-  $owner = 'root',
-  $group = 'root',
-  $mode  = '0644',
+  $cachedir = '/var/cache/r10k',
+  $postrun  = [],
+  $sources  = {},
+  $path     = '/etc/r10k.yaml',
+  $owner    = 'root',
+  $group    = 'root',
+  $mode     = '0644',
 ){
 
   file { "${path}":

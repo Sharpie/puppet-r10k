@@ -66,6 +66,11 @@ The `r10k::config` class manages the contents of `/etc/r10k.yaml` and accepts th
     Path to a directory to be used by r10k for caching data.
     Default: `/var/cache/r10k`
 
+  * `postrun`
+    An array of strings that specifies an arbitrary command to be run after
+    environment deployment.
+    Default: `[]`
+
   * `sources`:
     Hash containing data sources to be used by r10k to create dynamic Puppet environments.
     Default: `{}`
@@ -78,6 +83,10 @@ The `r10k::config` class is designed to be used in conjunction with Hiera data:
 ---
 # In a Hiera datasource
 r10k::ensure: '1.0.0'
+r10k::config::postrun:
+  - /usr/bin/some_executable
+  - arg1
+  - arg2
 r10k::config::sources:
   somename:
     remote: 'ssh://git@github.com/someuser/somerepo.git'
@@ -107,6 +116,11 @@ class { 'r10k::config':
       'basedir' => '/some/other/basedir'
     },
   },
+  postrun => [
+    '/usr/bin/some_executable',
+    'arg1',
+    'arg2',
+  ],
 }
 ```
 

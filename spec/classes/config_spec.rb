@@ -13,6 +13,7 @@ describe 'r10k::config', :type => :class do
           'basedir' => '/some/other/basedir'
         },
       },
+      'postrun' => ['/usr/bin/curl', '-F', 'deploy=done', 'http://my-app.site/endpoint'],
     }
   }
 
@@ -24,13 +25,17 @@ describe 'r10k::config', :type => :class do
     expect{ YAML.load subject.resource('File', '/etc/r10k.yaml')[:content]}.not_to raise_error
   end
 
+  # These tests check that the template is properly concatenating multiple
+  # YAML dumps of Ruby objects.
   context 'when generating content' do
     let(:content){ YAML.load subject.resource('File', '/etc/r10k.yaml')[:content] }
 
-    # These tests check that the template is properly concatenating multiple
-    # YAML dumps of Ruby objects.
     it 'creates a hash of sources' do
       expect(content[:sources]).to be_a(Hash)
+    end
+
+    it 'creates the postrun command as an array' do
+      expect(content[:postrun]).to be_a(Array)
     end
   end
 end
