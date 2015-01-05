@@ -38,11 +38,10 @@ Dependencies
 ------------
 
 This module should only be used to install and manage r10k versions 1.0.0 or newer.
+For r10k to be fully functional after installation and configuration, a git package should also be included on the managed node.
 
 This module was designed with Puppet 3.x in mind and makes extensive use of Hiera data bindings.
 The module may function on Puppet 2.7.x, but there are currently no tests or guarantees surrounding such functionality.
-
-For r10k to be fully functional after installation and configuration, a git package should also be included on the managed node.
 
 
 Examples
@@ -53,7 +52,7 @@ Currently this module provides two classes: `r10k` and `r10k::config`
 The `r10k` class is pretty simple to use and only takes one parameter, `ensure`:
 
 ```puppet
-class {'r10k': ensure => '1.0.0'}
+class {'r10k': ensure => '1.4.0'}
 ```
 
 Installation is performed by a `Package` type using the `gem` provider.
@@ -77,12 +76,16 @@ The `r10k::config` class manages the contents of `/etc/r10k.yaml` and accepts th
 
 Detailed information on these parameters can be found in the [r10k documentation][r10k-docs].
 
+Additionally, the `r10k::config` class also accepts the `path`, `user`, `group` and `mode` parameters of the [File Type][file-docs].
+These parameters are used to determine the location, ownership and permissions of the r10k configuration file.
+By default, the file will be located at `/etc/r10k.yaml`, be owned by `root`, and will have permissions of `0644`.
+
 The `r10k::config` class is designed to be used in conjunction with Hiera data:
 
 ```yaml
 ---
 # In a Hiera datasource
-r10k::ensure: '1.0.0'
+r10k::ensure: '1.4.0'
 r10k::config::postrun:
   - /usr/bin/some_executable
   - arg1
@@ -125,6 +128,7 @@ class { 'r10k::config':
 ```
 
   [r10k-docs]: https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/configuration.mkd
+  [file-docs]: https://docs.puppetlabs.com/references/stable/type.html#file
 
 
 Support
