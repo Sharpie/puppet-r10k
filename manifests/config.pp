@@ -57,7 +57,7 @@ class r10k::config (
   $mode     = '0644',
 ){
 
-  file { "${path}":
+  file { $path:
     ensure  => 'file',
     owner   => $owner,
     group   => $group,
