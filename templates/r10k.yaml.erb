@@ -1,13 +1,19 @@
 ---
 :cachedir: <%= @cachedir %>
-
-<%# The splitting/joining monkeybuisness below trims the YAML document header: `---` -%>
 <% unless @postrun.empty? -%>
-:postrun:
-<%= @postrun.to_yaml.split("\n")[1..-1].join("\n") %>
-<% end -%>
 
+:postrun:
+<% @postrun.each do |arg| -%>
+  - <%= arg %>
+<% end -%>
+<% end -%>
 <% unless @sources.empty? -%>
+
 :sources:
-<%= @sources.to_yaml.split("\n")[1..-1].join("\n") %>
+<% @sources.sort.each do |name, params| -%>
+  <%= name %>:
+<% params.sort.each do |key, value| -%>
+    <%= key %>: <%= value %>
+<% end -%>
+<% end -%>
 <% end -%>
