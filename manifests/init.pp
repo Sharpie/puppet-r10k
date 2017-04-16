@@ -4,25 +4,19 @@
 #
 # === Parameters
 #
-# [*ensure*]
-#   Version of r10k to install. Accepts any ensure state that is valid for the
-#   Package type. Default: present
-#
 # === Examples
 #
-#  class { r10k: ensure => '1.0.0' }
+#  class { r10k: }
 #
 # === Authors
 #
 # Charlie Sharpsteen <source@sharpsteen.net>
+# Michael Gruener <michael.gruener@chaosmoon.net>
 #
-class r10k (
-  $ensure = 'present',
-){
-
-  package { 'r10k':
-    ensure   => $ensure,
-    provider => 'gem',
+class r10k {
+  if $::osfamily == 'RedHat' {
+    include r10k::install::rpm
+  } else {
+    include r10k::install::gem
   }
-
 }
